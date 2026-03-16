@@ -68,9 +68,7 @@ CREATE TABLE bronze.crm_inventory_451 (
     reorder_level       INT,
     supplier_id         NVARCHAR(50),
     warehouse_location  NVARCHAR(50),    
-    last_stock_update   NVARCHAR(50),    
-    sls_quantity    	INT,
-    sls_price       	INT	
+    last_stock_update   NVARCHAR(50)   
 );
 GO
 
