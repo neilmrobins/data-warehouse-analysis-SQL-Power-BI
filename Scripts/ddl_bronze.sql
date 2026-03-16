@@ -52,7 +52,8 @@ CREATE TABLE bronze.crm_sales_details (
     sls_due_dt   INT,
     sls_sales    INT,
     sls_quantity INT,
-    sls_price    INT
+    sls_price    INT,
+	Order_year	 INT
 );
 GO
 
@@ -68,8 +69,8 @@ CREATE TABLE bronze.crm_inventory_451 (
     supplier_id         NVARCHAR(50),
     warehouse_location  NVARCHAR(50),    
     last_stock_update   NVARCHAR(50),    
-    sls_quantity    INT,
-    sls_price       INT
+    sls_quantity    	INT,
+    sls_price       	INT	
 );
 GO
 
