@@ -104,3 +104,10 @@ CREATE TABLE bronze.erp_px_cat_g1v2 (
     maintenance  NVARCHAR(50)
 );
 GO
+
+CREATE TABLE bronze.erp_supp_a149 (
+    supplier_id         NVARCHAR(50),
+    supplier_name       NVARCHAR(50),
+    supplier_email      NVARCHAR(50)
+);
+GO
