@@ -71,9 +71,7 @@ CREATE TABLE silver.crm_inventory_451 (
     reorder_level       INT,
     supplier_id         NVARCHAR(50),
     warehouse_location  NVARCHAR(50),    
-    last_stock_update   DATE,    
-    sls_quantity        INT,
-    sls_price           INT
+    last_stock_update   DATE    
 );
 GO
 
