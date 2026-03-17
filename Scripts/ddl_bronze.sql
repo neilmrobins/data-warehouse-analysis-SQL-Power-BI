@@ -29,13 +29,13 @@ IF OBJECT_ID('bronze.crm_prd_info', 'U') IS NOT NULL
 GO
 
 CREATE TABLE bronze.crm_prd_info (
-    prd_id       INT,
-    prd_key      NVARCHAR(50),
-    prd_nm       NVARCHAR(50),
-    prd_cost     INT,
-    prd_line     NVARCHAR(50),
-    prd_start_dt DATETIME,
-    prd_end_dt   DATETIME
+    prd_id                 INT,
+    prd_key                NVARCHAR(50),
+    prd_nm                 NVARCHAR(50),
+    prd_wholesale_cost     FLOAT,
+    prd_line               NVARCHAR(50),
+    prd_start_dt           NVARCHAR(50),
+    prd_end_dt             NVARCHAR(50)
 );
 GO
 
@@ -63,12 +63,12 @@ GO
 
 CREATE TABLE bronze.crm_inventory_451 (
     prd_key             NVARCHAR(50),
-    wholesale_cost      FLOAT,
+    cost_parts          FLOAT,
     current_stock       INT,
     reorder_level       INT,
     supplier_id         NVARCHAR(50),
     warehouse_location  NVARCHAR(50),    
-    last_stock_update   NVARCHAR(50)   
+    last_stock_update   NVARCHAR(50)
 );
 GO
 
@@ -104,4 +104,3 @@ CREATE TABLE bronze.erp_px_cat_g1v2 (
     maintenance  NVARCHAR(50)
 );
 GO
-
