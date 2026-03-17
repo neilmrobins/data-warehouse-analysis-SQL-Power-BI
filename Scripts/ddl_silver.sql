@@ -30,15 +30,15 @@ IF OBJECT_ID('silver.crm_prd_info', 'U') IS NOT NULL
 GO
 
 CREATE TABLE silver.crm_prd_info (
-    prd_id          INT,
-    cat_id          NVARCHAR(50),
-    prd_key         NVARCHAR(50),
-    prd_nm          NVARCHAR(50),
-    prd_cost        INT,
-    prd_line        NVARCHAR(50),
-    prd_start_dt    DATE,
-    prd_end_dt      DATE,
-    dwh_create_date DATETIME2 DEFAULT GETDATE()
+    prd_id              INT,
+    cat_id              NVARCHAR(50),
+    prd_key             NVARCHAR(50),
+    prd_nm              NVARCHAR(50),
+    prd_wholesale_cost  FLOAT,
+    prd_line            NVARCHAR(50),
+    prd_start_dt        DATE,
+    prd_end_dt          DATE,
+    dwh_create_date     DATETIME2 DEFAULT GETDATE()
 );
 GO
 
@@ -66,12 +66,13 @@ GO
 
 CREATE TABLE silver.crm_inventory_451 (
     prd_key             NVARCHAR(50),
-    wholesale_cost      FLOAT,
+    cost_parts          FLOAT,
     current_stock       INT,
     reorder_level       INT,
     supplier_id         NVARCHAR(50),
     warehouse_location  NVARCHAR(50),    
-    last_stock_update   DATE    
+    last_stock_update   DATE,    
+    dwh_create_date DATETIME2 DEFAULT GETDATE()
 );
 GO
 
@@ -111,3 +112,10 @@ CREATE TABLE silver.erp_px_cat_g1v2 (
 );
 GO
 
+CREATE TABLE silver.erp_supp_a149 (
+    supplier_id     NVARCHAR(50),
+    supplier_name   NVARCHAR(50),
+    supplier_email  NVARCHAR(50),    
+    dwh_create_date DATETIME2 DEFAULT GETDATE()
+);
+GO
