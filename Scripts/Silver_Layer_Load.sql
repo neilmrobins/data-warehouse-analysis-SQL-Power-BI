@@ -1,3 +1,13 @@
+USE [DataWarehouse]
+GO
+
+/****** Object:  StoredProcedure [silver].[load_silver]    Script Date: 19/03/2026 11:14:13 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
 /*
 ===============================================================================
 Stored Procedure: Load Silver Layer (Bronze -> Silver)
@@ -18,7 +28,7 @@ Usage Example:
 ===============================================================================
 */
 
-CREATE OR ALTER PROCEDURE silver.load_silver AS
+ALTER   PROCEDURE [silver].[load_silver] AS
 BEGIN
     DECLARE @start_time DATETIME, @end_time DATETIME, @batch_start_time DATETIME, @batch_end_time DATETIME; 
     BEGIN TRY
@@ -136,15 +146,15 @@ BEGIN
 			sls_cust_id,
 			CASE 
 				WHEN sls_order_dt = 0 OR LEN(sls_order_dt) != 8 THEN NULL
-				ELSE CAST(CAST(sls_order_dt AS VARCHAR) AS DATE)
+				ELSE TRY_CONVERT(date, CAST(sls_order_dt AS VARCHAR(8)), 112)
 			END AS sls_order_dt,
 			CASE 
 				WHEN sls_ship_dt = 0 OR LEN(sls_ship_dt) != 8 THEN NULL
-				ELSE CAST(CAST(sls_ship_dt AS VARCHAR) AS DATE)
+				ELSE TRY_CONVERT(date, CAST(sls_ship_dt AS VARCHAR(8)), 112)
 			END AS sls_ship_dt,
 			CASE 
 				WHEN sls_due_dt = 0 OR LEN(sls_due_dt) != 8 THEN NULL
-				ELSE CAST(CAST(sls_due_dt AS VARCHAR) AS DATE)
+				ELSE TRY_CONVERT(date, CAST(sls_due_dt AS VARCHAR(8)), 112)
 			END AS sls_due_dt,
 			CASE 
 				WHEN sls_sales IS NULL OR sls_sales <= 0 OR sls_sales != sls_quantity * ABS(sls_price) 
@@ -306,5 +316,5 @@ BEGIN
 		PRINT '=========================================='
 	END CATCH
 END
-
+GO
 EXEC silver.load_silver
