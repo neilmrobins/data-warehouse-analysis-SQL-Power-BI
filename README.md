@@ -1,5 +1,7 @@
 # data-warehouse-analysis-SQL-Python-Power-BI
-This project demonstrates a comprehensive data warehousing and analytics solution, from building a data warehouse to generating actionable insights. It's a portfolio project, inspired by *Baraa Salkini* but adapted to add more data and more analysis, including Python data enrichment and Power BI reporting.
+An end-to-end data warehousing and analytics project demonstrating how raw data can be transformed into actionable business insights using SQL Server, Python, and Power BI.
+
+Inspired by Baraa Salkini, this project extends the original scope with data enrichment, enhanced modelling, and deeper analytical insights.
 ---
 ## 🏗️ Data Architecture
 
@@ -11,49 +13,88 @@ The data architecture for this project follows Medallion Architecture **Bronze**
 
 
 
-1. **Bronze Layer**: Stores raw data as-is from the source systems. Data is ingested from CSV Files into SQL Server Database.
-2. **Silver Layer**: This layer includes data cleansing, standardization, and normalization processes to prepare data for analysis.
-3. **Gold Layer**: Houses business-ready data modeled into a star schema required for reporting and analytics.
+## Layers:
+
+- **Bronze** → Raw ingestion from ERP & CRM CSV files into SQL Server
+
+- **Silver** → Data cleansing, validation, and standardisation
+
+- **Gold** → Business-ready star schema optimised for analytics
 
 ---
+
 ## 📖 Project Overview
 
-This project involves:
+This solution covers the full data lifecycle:
 
-1. **Data Architecture**: Designing a Modern Data Warehouse Using Medallion Architecture **Bronze**, **Silver**, and **Gold** layers.
-2. **ETL Pipelines**: Extracting, transforming, enriching (generating additional Sales data using Python to enable more detailed analysis) and loading data from source systems into the warehouse.
-3. **Data Modeling**: Developing fact and dimension tables optimized for analytical queries.
-4. **Analytics & Reporting**: Creating SQL-based reports and Power BI dashboards for actionable insights.
+- **Data Engineering**  
+  Built ETL pipelines to ingest, clean, and transform multi-source data  
 
-## 🚀 Project Requirements
+- **Data Enrichment (Python)**  
+  Expanded dataset from ~60K → ~200K rows with realistic patterns, variability, and controlled data quality issues  
 
-### Building the Data Warehouse (Data Engineering)
+- **Data Modelling**  
+  Designed a **star schema** with fact and dimension tables to support scalable analytics  
 
-#### Objective
-Develop a modern data warehouse using SQL Server to consolidate sales data, enabling analytical reporting and informed decision-making.
-
-#### Specifications
-- **Data Sources**: Import data from two source systems (ERP and CRM) provided as CSV files.
-- **Data Enrichment**: Expand the sales data from ~60K rows to ~200K rows using Python, while preserving data integrity, incorporating some data errors and having realistic ranges in values instead of purely random values 
-- **Data Quality**: Cleanse and resolve data quality issues using SQL prior to analysis.
-- **Integration**: Combine both sources into a single, user-friendly data model designed for analytical queries.
-- **Scope**: Focus on the latest dataset only; historization of data is not required.
-- **Documentation**: Provide clear documentation of the data model to support both business stakeholders and analytics teams.
+- **Analytics & BI**  
+  Delivered insights using **SQL and Power BI**, including DAX measures and interactive dashboards  
 
 ---
 
-### BI: Analytics & Reporting (Data Analysis)
+## 🚀 Key Features
 
-#### Objective
-Develop SQL-based analytics to deliver detailed insights into:
-- **Customer Behavior**
-- **Product Performance**
-- **Sales Trends**
-Load SQL tables into Power BI, establish semantic model and develop DAX measures and visualisation to:
-- **Analsyse profit** performance over time
+- 🔄 End-to-end ETL pipeline (SQL + Python)  
+- 🧱 Medallion architecture implementation  
+- 📊 Star schema data model for performance  
+- 🧹 Data quality handling (nulls, inconsistencies, validation rules)  
+- 📈 Power BI dashboard with KPI-driven insights  
+- 🧠 Advanced DAX measures (AOV, profit trends, product performance)  
 
-These insights empower stakeholders with key business metrics, enabling strategic decision-making.  
+---
+
+## 📊 Analytics Delivered
+
+The project provides actionable insights into:
+
+- **Customer Behaviour**  
+  - Segmentation by age, geography, and purchasing patterns  
+
+- **Product Performance**  
+  - Identification of top-performing products and categories  
+  - Analysis of volume vs value (e.g. high-performers vs low-performers)  
+
+- **Sales Trends**  
+  - Revenue and profit trends over time  
+  - Seasonal patterns and growth opportunities  
+
+---
+
+## 🧠 Example Insights
+
+- Bikes dominate revenue, with Road Bikes leading in volume  
+- Mountain Bikes generate the highest average order value  
+- High-performing products drive significantly more revenue per order despite lower sales volume  
+- Clothing and Accessories present opportunities for growth  
+
+---
+
+## 🛠️ Tech Stack
+
+- **SQL Server** → Data warehouse + transformations  
+- **Python** → Data generation & enrichment  
+- **Power BI** → Data modelling (DAX) + dashboards  
+- **GitHub** → Version control & documentation  
+
+---
+
+## 📌 Project Scope
+
+- Integrated ERP & CRM datasets  
+- Focused on latest-state analytics (no historisation)  
+- Designed for analytical querying and dashboard consumption  
+
+---
 
 ## 🛡️ License
 
-This project is licensed under the [MIT License](LICENSE). You are free to use, modify, and share this project with proper attribution.
+This project is licensed under the MIT License.
