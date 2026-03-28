@@ -31,7 +31,7 @@ This solution covers the full data lifecycle:
   Built ETL pipelines to ingest, clean, and transform multi-source data  
 
 - **Data Enrichment (Python)**  
-  Expanded dataset from ~60K → ~200K rows with realistic patterns, variability, and controlled data quality issues  
+  Expanded dataset from ~60K → ~640K rows with realistic patterns, variability, and controlled data quality issues  
 
 - **Data Modelling**  
   Designed a **star schema** with fact and dimension tables to support scalable analytics  
